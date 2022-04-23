@@ -1,10 +1,14 @@
 package com.example.javafxtesting;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import java.util.ArrayList;
+import java.util.Hashtable;
 import javafx.scene.control.*;
 import java.io.IOException;
 
@@ -15,12 +19,12 @@ public class HelloApplication extends Application {
             };
     public boolean isGameOn;
     public String winner;
-    public Button[] cells;
+    public ArrayList<Button> cells;
     //IIB
     {
         this.isGameOn=Boolean.TRUE;
         this.winner="";
-        this.cells=new Button[9];
+        this.cells=new ArrayList<>(0);
     }
     @Override
     public void start(Stage stage) throws IOException
@@ -33,13 +37,24 @@ public class HelloApplication extends Application {
         GridPane gp=new GridPane();
         Scene s=new Scene(gp,400,400);
         stage.setScene(s);
+        this.runInit(gp);
+
         stage.setTitle("Tic-Tac-Toe");
         stage.show();
     }
      //This method initializes the buttons required for tic-tac-toe
-    public void runInit()
+    public void runInit(GridPane panel)
     {
-
+        EventHandler<ActionEvent> ae=(ev)->
+        {
+            
+        };
+    for(int i=0;i<this.cells.length;++i)
+    {
+        Button b;
+        this.cells.add(b=new Button());
+        panel.getChildren().add(b);
+    }
     }
     public static void main(String[] args) {
         launch();
