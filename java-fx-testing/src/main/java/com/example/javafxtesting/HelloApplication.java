@@ -17,6 +17,12 @@ public class HelloApplication extends Application {
             {
                     "0 1 2", "0 3 6", "2 5 8", "6 7 8", "0 4 8", "2 4 6", "1 4 7", "3 4 5"
             };
+    public final static String[] indices=//contains the (x,y) coordinates for every cell grid button
+            {
+                    "0 0","0 1","0 2",
+                    "1 0","1 1","1 2",
+                    "2 0","2 1","2 2"
+            };
     public String current_pl;
     public boolean isGameOn;
     public String winner;
@@ -38,10 +44,12 @@ public class HelloApplication extends Application {
         //stage.setScene(scene);
         //stage.show();
         GridPane gp = new GridPane();
+
         Scene s = new Scene(gp, 400, 400);
         stage.setScene(s);
         this.runInit(gp);
-
+        gp.setGridLinesVisible(true);
+        gp.setPrefSize(400,400);
         stage.setTitle("Tic-Tac-Toe");
         stage.show();
     }
@@ -81,9 +89,10 @@ public class HelloApplication extends Application {
         };
         for (int i = 0; i < 9; ++i) {
             Button b;
+            Scanner sc=new Scanner(indices[i]);
             this.cells.add(b = new Button(""));
             b.setOnAction(ae);
-            panel.getChildren().add(b);
+            panel.add(b,sc.nextInt(),sc.nextInt());
         }
     }
 
