@@ -48,6 +48,7 @@ public class HelloApplication extends Application {
         Scene s = new Scene(gp, 400, 400);
         stage.setScene(s);
         this.runInit(gp);
+        //This is a test comment
         gp.setGridLinesVisible(true);
         gp.setPrefSize(400,400);
         stage.setTitle("Tic-Tac-Toe");
